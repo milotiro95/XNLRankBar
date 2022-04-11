@@ -36,7 +36,7 @@ XP Ranking System for FiveM (QBCore)
 * Drop the `XNLRankBar` directory into you `resources` directory
 * Add `ensure XNLRankBar` to your `server.cfg` file
 
-By default this resource uses `oxmysql`, but if you don't want to use / install it then you can use `mysql-async` by following these instructions:
+By default this resource uses `oxmysql`
 
 ## Usage
 
@@ -83,6 +83,28 @@ TriggerClientEvent('XNL_NET:XNL_SetInitialXPLevels', source) -- not needed inste
 TriggerClientEvent('XNL_NET:AddPlayerXP', source, 100) -- give 100 xp
 
 TriggerClientEvent('XNL_NET:RemovePlayerXP', source, 100) -- remove 100 xp
+```
+
+## Check XP Client side
+Per exemple this is how I use it to know which level are a player and to put my condition in 
+```
+RegisterNetEvent('consumables:client:Fishinrod', function()
+    local ped = PlayerPedId()
+	local xp = exports.XNLRankBar:Exp_XNL_GetCurrentPlayerXP()
+	
+	if xp >= 6100 then
+        QBCore.Functions.Progressbar("adding_fishingrod", "✅ Take out the fishing rod..", 2500, false, true, {
+            disableMovement = false,
+            disableCarMovement = false,
+            disableMouse = false,
+            disableCombat = true,
+        }, {}, {}, {}, function() -- Done
+			TriggerEvent("qb-fish:tryToFish")
+        end)
+    else
+        QBCore.Functions.Notify("❌ You need to be level 5..", "error")
+    end
+end)
 ```
 
 ## Rank Events
