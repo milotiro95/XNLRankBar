@@ -36,14 +36,14 @@ XP Ranking System for FiveM (QBCore)
 * Drop the `XNLRankBar` directory into you `resources` directory
 * Add `ensure XNLRankBar` to your `server.cfg` file
 
-By default this resource uses `oxmysql`
+By default this resource uses `oxmysql`, but if you don't want to use / install it then you can use `mysql-async` by following these instructions:
 
 ## Usage
 
 ### Client
 Initiate Initial Levels (not needed except of special uses cases)
 ```lua
-exports.Exp_XNL_SetInitialXPLevels(source)
+exports.XNLRankBar:Exp_XNL_SetInitialXPLevels(source)
 ```
 
 Give XP to player
