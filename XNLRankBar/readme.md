@@ -36,44 +36,44 @@ XP Ranking System for FiveM (QBCore)
 * Drop the `XNLRankBar` directory into you `resources` directory
 * Add `ensure XNLRankBar` to your `server.cfg` file
 
-By default this resource uses `oxmysql`
+By default this resource uses `oxmysql`, but if you don't want to use / install it then you can use `mysql-async` by following these instructions:
 
 ## Usage
 
 ### Client
 Initiate Initial Levels (not needed except of special uses cases)
 ```lua
-exports.Exp_XNL_SetInitialXPLevels(source)
+exports.XNLRankBar:Exp_XNL_SetInitialXPLevels(source)
 ```
 
 Give XP to player
 ```lua
-exports.Exp_XNL_AddPlayerXP(source, 100)
+exports.XNLRankBar:Exp_XNL_AddPlayerXP(100)
 ```
 
 Take XP from player
 ```lua
-exports.Exp_XNL_RemovePlayerXP(source, 100)
+exports.XNLRankBar:Exp_XNL_RemovePlayerXP(100)
 ```
 
 Get player's XP
 ```lua
-exports.Exp_XNL_GetCurrentPlayerLevel()
+exports.XNLRankBar:Exp_XNL_GetCurrentPlayerLevel()
 ```
 
 Get player's rank
 ```lua
-exports.Exp_XNL_GetLevelFromXP()
+exports.XNLRankBar:Exp_XNL_GetLevelFromXP()
 ```
 
 Get XP required to rank up
 ```lua
-exports.Exp_XNL_GetXPFloorForLevel()
+exports.XNLRankBar:Exp_XNL_GetXPFloorForLevel()
 ```
 
 Get XP required to reach defined rank
 ```lua
-exports.Exp_XNL_GetXPCeilingForLevel()
+exports.XNLRankBar:Exp_XNL_GetXPCeilingForLevel()
 ```
 
 ### Server
@@ -86,7 +86,8 @@ TriggerClientEvent('XNL_NET:RemovePlayerXP', source, 100) -- remove 100 xp
 ```
 
 ## Check XP Client side
-Per exemple this is how I use it to know which level are a player and to put my condition in 
+Per exemple this is how I use it to know which level are a player and to put my condition in
+
 ```
 RegisterNetEvent('consumables:client:Fishinrod', function()
     local ped = PlayerPedId()
