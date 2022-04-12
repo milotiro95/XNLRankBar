@@ -48,32 +48,32 @@ exports.Exp_XNL_SetInitialXPLevels(source)
 
 Give XP to player
 ```lua
-exports.Exp_XNL_AddPlayerXP(source, 100)
+exports.XNLRankBar:Exp_XNL_AddPlayerXP(100)
 ```
 
 Take XP from player
 ```lua
-exports.Exp_XNL_RemovePlayerXP(source, 100)
+exports.XNLRankBar:Exp_XNL_RemovePlayerXP(100)
 ```
 
 Get player's XP
 ```lua
-exports.Exp_XNL_GetCurrentPlayerLevel()
+exports.XNLRankBar:Exp_XNL_GetCurrentPlayerLevel()
 ```
 
 Get player's rank
 ```lua
-exports.Exp_XNL_GetLevelFromXP()
+exports.XNLRankBar:Exp_XNL_GetLevelFromXP()
 ```
 
 Get XP required to rank up
 ```lua
-exports.Exp_XNL_GetXPFloorForLevel()
+exports.XNLRankBar:Exp_XNL_GetXPFloorForLevel()
 ```
 
 Get XP required to reach defined rank
 ```lua
-exports.Exp_XNL_GetXPCeilingForLevel()
+exports.XNLRankBar:Exp_XNL_GetXPCeilingForLevel()
 ```
 
 ### Server
@@ -86,7 +86,8 @@ TriggerClientEvent('XNL_NET:RemovePlayerXP', source, 100) -- remove 100 xp
 ```
 
 ## Check XP Client side
-Per exemple this is how I use it to know which level are a player and to put my condition in 
+Per exemple this is how I use it to know which level are a player and to put my condition in
+
 ```
 RegisterNetEvent('consumables:client:Fishinrod', function()
     local ped = PlayerPedId()
